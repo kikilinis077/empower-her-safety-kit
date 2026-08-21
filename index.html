@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Empower Her · Safety Kit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F8B4C0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 210, 225, 0.6) 0%, transparent 50%),
+        linear-gradient(180deg, #F8B4C0 0%, #F59EA9 50%, #EF8696 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+      color: #2E473B;
+    }
+
+    /* Constellation background grid */
+    .constellation-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Product Item White Card */
+    .kit-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(180, 70, 90, 0.12);
+      transition: transform 0.2s ease;
+    }
+    .kit-card:active {
+      transform: scale(0.97);
+    }
+
+    /* Glass Audience Card */
+    .glass-audience-card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 16px rgba(180, 60, 80, 0.08);
+    }
+
+    /* Video Player Container */
+    .video-card {
+      background: #1A1A1A;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Green CTA Button */
+    .btn-green {
+      background: #3B6B46;
+      color: #FFFFFF;
+      border-radius: 9999px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      box-shadow: 0 6px 16px rgba(59, 107, 70, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-green:hover {
+      background: #315A3A;
+    }
+    .btn-green:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(59, 107, 70, 0.25);
+    }
+
+    /* Henkel Oval Red Pill Logo */
+    .henkel-logo-pill {
+      border: 2px solid #E60000;
+      border-radius: 9999px;
+      padding: 2px 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+    }
+  </style>
+</head>
+<body class="p-0 sm:py-6">
+
+  <!-- Mobile Screen Container -->
+  <main class="w-full max-w-[420px] min-h-screen bg-[#F7A6B4] relative flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[32px]">
+    
+    <!-- Top Decorative Constellation Lines -->
+    <div class="constellation-bg"></div>
+
+    <!-- Main Content Area -->
+    <div class="px-5 pt-5 pb-4 flex flex-col gap-4 z-10">
+      
+      <!-- 1. Header: Henkel China ERG x Women Sales Association -->
+      <header class="flex items-center justify-start space-x-3 pt-1">
+        <div class="henkel-logo-pill shadow-sm">
+          <span class="text-[#E60000] font-black text-xs tracking-tight italic">Henkel</span>
+        </div>
+        <div class="text-[12px] font-bold text-[#3B4D3C] leading-tight">
+          Henkel<br>China ERG
+        </div>
+        <div class="text-xs text-gray-500 font-light px-0.5">✕</div>
+        <div class="text-[12px] font-bold text-[#3B4D3C] leading-tight">
+          Women Sales<br>Association
+        </div>
+      </header>
+
+      <!-- 2. Hero Visual / Title Card (With Smart Fallback) -->
+      <section class="w-full">
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-pink-200/60 bg-white/40">
+          <img src="./assets/empower-her-title.png" 
+               alt="Empower Her Safety Kit" 
+               class="w-full h-auto object-cover block"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80';">
+        </div>
+      </section>
+
+            <!-- 3. Target Audience Card (With Photo Placeholder) -->
+      <section class="glass-audience-card rounded-xl p-2.5 px-3 flex items-center gap-3 border-l-[3.5px] border-[#3B6B46]">
+        <div class="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-green-200/80 bg-white flex items-center justify-center shadow-xs">
+          <img src="./assets/audience.png" 
+               alt="Audience" 
+               class="w-full h-full object-cover"
+               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=80';">
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-[10px] uppercase tracking-wider text-[#3B6B46] font-extrabold">适用对象 / For Whom</div>
+          <div class="text-xs font-bold text-[#2E473B] leading-tight">
+            HAT Direct Customer Facing Colleagues <span class="text-[#D9383A]">(female only)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Inside the Kit Section -->
+      <section class="flex flex-col items-center mt-1">
+        <h2 class="text-[20px] font-extrabold text-[#2F4E37] tracking-tight mb-2.5">
+          Inside the Kit
+        </h2>
+
+        <!-- 3 Items Grid (With Direct Visual Fallbacks) -->
+        <div class="grid grid-cols-3 gap-2.5 w-full">
+          
+          <!-- Item 1: Safety Booklet -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
+              <img src="./assets/booklet.jpg" 
+                   alt="Safety Booklet" 
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=300&q=80';">
+            </div>
+            <span class="text-[12px] font-bold text-[#2F4E37] leading-tight mt-1">Safety Booklet</span>
+          </div>
+
+          <!-- Item 2: Personal Safety Alarm -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden ring-2 ring-[#7B88FF]/30">
+              <img src="./assets/alarm.jpg" 
+                   alt="Personal Safety Alarm" 
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=300&q=80';">
+            </div>
+            <span class="text-[12px] font-bold text-[#2F4E37] leading-tight mt-1">Personal<br>Safety Alarm</span>
+          </div>
+
+          <!-- Item 3: Custom Pouch -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
+              <img src="./assets/pouch.jpg" 
+                   alt="Custom Pouch" 
+                   class="w-full h-full object-contain"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80';">
+            </div>
+            <span class="text-[12px] font-bold text-[#2F4E37] leading-tight mt-1">Custom Pouch</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. How It Works Section -->
+      <section class="flex flex-col items-center">
+        <h2 class="text-[20px] font-extrabold text-[#2F4E37] tracking-tight mb-2.5">
+          How It Works
+        </h2>
+
+        <!-- Video Frame -->
+        <div class="video-card w-full relative">
+          <!-- Video Header Bar -->
+          <div class="absolute top-0 left-0 right-0 p-2 bg-gradient-to-b from-black/70 to-transparent z-10 flex items-center justify-between">
+            <div class="flex items-center space-x-1.5">
+              <div class="bg-white rounded-full px-1.5 py-0.5 border border-red-500 flex items-center">
+                <span class="text-[#E60000] text-[9px] font-black italic">Henkel</span>
+              </div>
+              <span class="text-white text-xs font-semibold drop-shadow">How It Works</span>
+            </div>
+            <div class="text-white/80 text-xs">⋮</div>
+          </div>
+
+          <!-- Video Element with Demo Stream Backup -->
+          <div class="relative w-full aspect-[16/10] bg-zinc-900 flex items-center justify-center">
+            <video 
+              src="./assets/how-it-works.mp4" 
+              controls 
+              playsinline 
+              webkit-playsinline 
+              preload="metadata"
+              poster="./assets/video-cover.jpg"
+              class="w-full h-full object-cover">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+
+          <!-- Overlay Caption Bar -->
+          <div class="p-2.5 bg-[#1F2421]/90 text-[11px] text-white/90 font-medium text-center border-t border-white/10">
+            Press button for 3 seconds to sound alarm and notify contacts.
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 6. Bottom Sticky Action Bar -->
+    <div class="w-full bg-[#181A1B]/95 backdrop-blur-md px-5 py-3.5 flex flex-col items-center justify-center border-t border-white/10 z-20">
+      <!-- CTA Button (Placeholder Link) -->
+      <a href="https://forms.office.com" target="_blank" 
+         class="btn-green w-full py-3.5 text-center text-base tracking-wide flex items-center justify-center gap-2">
+        Request Your Kit Now
+      </a>
+    </div>
+
+  </main>
+
+</body>
+</html>
+
