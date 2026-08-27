@@ -66,13 +66,6 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     }
 
-    .logo-box {
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .tab-btn {
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -95,23 +88,12 @@
 
     <div class="px-5 pt-5 pb-8 flex flex-col gap-4 z-10">
       
-      <!-- 1. Header -->
-      <header class="flex items-center justify-between px-2 pt-1">
-        <div class="logo-box shrink-0">
-          <img src="./assets/henkel-logo.png" 
-               alt="Henkel" 
-               class="h-7 w-auto object-contain block"
-               onerror="this.src='henkel-logo.png'; this.onerror=null;">
-        </div>
-
-        <div class="text-sm text-[#0E0D24]/40 font-light px-2">✕</div>
-
-        <div class="logo-box shrink-0">
-          <img src="./assets/empower-her-logo.png" 
-               alt="Empower Her" 
-               class="h-7 w-auto object-contain block"
-               onerror="this.src='empower-her-logo.png'; this.onerror=null;">
-        </div>
+      <!-- 1. Header: 替换为最新的结合版 Logo (henkel-empower-her-logo.PNG) -->
+      <header class="w-full flex items-center justify-center pt-1 pb-1">
+        <img src="./assets/henkel-empower-her-logo.PNG" 
+             alt="Henkel x Empower Her" 
+             class="h-8 max-w-[85%] object-contain block"
+             onerror="this.src='henkel-empower-her-logo.PNG'; this.onerror=function(){ this.src='./assets/henkel-empower-her-logo.png'; };">
       </header>
 
       <!-- 2. Hero Visual -->
@@ -140,23 +122,25 @@
         </div>
       </section>
 
- <!-- 4. Inside the Kit -->
+      <!-- 4. Inside the Kit (更新 booklet.PNG) -->
       <section class="flex flex-col items-center mt-1">
         <h2 class="text-[20px] font-extrabold text-[#0E0D24] tracking-tight mb-2.5">
           Inside the Kit
         </h2>
 
         <div class="grid grid-cols-3 gap-2.5 w-full">
+          <!-- Item 1: Safety Booklet -->
           <div class="flex flex-col items-center text-center">
             <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
-              <img src="./assets/booklet.jpg" 
+             <img src="./assets/booklet.PNG" 
                    alt="Safety Booklet" 
                    class="w-full h-full object-contain"
-                   onerror="this.src='booklet.jpg'; this.onerror=null;">
+                   onerror="this.src='booklet.PNG'; this.onerror=function(){ this.src='./assets/booklet.png'; };">
             </div>
             <span class="text-[12px] font-bold text-[#0E0D24] leading-tight mt-1">Safety Booklet</span>
           </div>
 
+          <!-- Item 2: Personal Safety Alarm -->
           <div class="flex flex-col items-center text-center">
             <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden ring-2 ring-[#0E0D24]/20">
               <img src="./assets/alarm.png" 
@@ -167,6 +151,7 @@
             <span class="text-[12px] font-bold text-[#0E0D24] leading-tight mt-1">Personal<br>Safety Alarm</span>
           </div>
 
+          <!-- Item 3: QR Quick Start Card -->
           <div class="flex flex-col items-center text-center">
             <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
               <img src="./assets/qr-card.png" 
@@ -226,7 +211,7 @@
         </div>
       </section>
 
-      <!-- 6. Need Help? Contact Women Community (无白色圆边 + 显示完整邮箱地址) -->
+      <!-- 6. Need Help? Contact Women Community -->
       <section class="mt-2 pt-6 border-t border-white/30 flex flex-col gap-4">
         <div class="text-center">
           <h2 class="text-xl font-extrabold text-[#0E0D24] tracking-tight leading-tight">
@@ -234,10 +219,9 @@
           </h2>
         </div>
 
-        
-  <div class="grid grid-cols-3 gap-y-6 gap-x-1.5 px-0.5">
+        <div class="grid grid-cols-3 gap-y-6 gap-x-1.5 px-0.5">
           
-          <!-- 1. Monica Lim -->
+                    <!-- 1. Monica Lim -->
           <div class="flex flex-col items-center text-center">
             <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
               <img src="./assets/avatar-monica.png" alt="Monica Lim" class="w-full h-full object-contain" onerror="this.src='avatar-monica.png'; this.onerror=null;">
@@ -297,7 +281,7 @@
             <a href="mailto:rachel.chen@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">rachel.chen@henkel.com</a>
           </div>
 
-         <!-- 7. Wendy Song -->
+          <!-- 7. Wendy Song -->
           <div class="flex flex-col items-center text-center">
             <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
               <img src="./assets/avatar-wendy-s.png" alt="Wendy Song" class="w-full h-full object-contain" onerror="this.src='avatar-wendy-s.png'; this.onerror=null;">
@@ -363,3 +347,4 @@
 
 </body>
 </html>
+              
