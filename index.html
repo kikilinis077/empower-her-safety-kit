@@ -88,11 +88,11 @@
 
     <div class="px-5 pt-5 pb-8 flex flex-col gap-4 z-10">
       
-            <!-- 1. Header: 左上角靠左对齐 -->
-      <header class="w-full flex items-center justify-start pt-2 pb-1 px-1 min-h-[44px]">
+                  <!-- 1. Header: 放大 Logo 尺寸，确保字迹清晰 -->
+      <header class="w-full flex items-center justify-start pt-3 pb-2 px-2">
         <img src="./assets/henkel-empower-her-logo.PNG" 
              alt="Henkel x Empower Her" 
-             class="w-auto h-7 sm:h-8 max-w-[85%] object-contain block"
+             class="h-10 sm:h-12 w-auto max-w-[95%] object-contain block drop-shadow-sm"
              onerror="
                if (!this.dataset.tried1) {
                  this.dataset.tried1 = true;
@@ -117,21 +117,21 @@
         </div>
       </section>
 
-      <!-- 3. Target Audience Card -->
-      <section class="glass-audience-card rounded-xl p-2.5 px-3 flex items-center gap-3 border-l-[3.5px] border-[#0E0D24]">
-        <div class="w-10 h-10 rounded-full overflow-hidden shrink-0 border border-[#0E0D24]/20 bg-white flex items-center justify-center shadow-xs">
+            <!-- 3. Target Audience Card -->
+      <section class="glass-audience-card rounded-xl p-3 flex items-center gap-3 border-l-[3.5px] border-[#0E0D24]">
+        <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-[#0E0D24]/20 bg-white flex items-center justify-center shadow-xs">
           <img src="./assets/audience.png" 
                alt="Audience" 
                class="w-full h-full object-cover"
                onerror="this.src='audience.png'; this.onerror=null;">
         </div>
         <div class="flex-1 min-w-0">
-          <div class="text-[10px] uppercase tracking-wider text-[#0E0D24] font-extrabold">FOR WHOM</div>
-          <div class="text-xs font-bold text-[#0E0D24] leading-tight">
-            HAT Direct Customer Facing Colleagues <span class="text-[#FF4E00] font-black bg-white px-1 py-0.2 rounded">(female only)</span>
+          <div class="text-[13px] font-bold text-[#0E0D24] leading-snug">
+            For HAT Direct Customer Facing Colleagues <span class="text-[#FF4E00] font-black bg-white px-1.5 py-0.5 rounded text-xs inline-block mt-0.5">(female only)</span>
           </div>
         </div>
       </section>
+
 
       <!-- 4. Inside the Kit (更新 booklet.PNG) -->
       <section class="flex flex-col items-center mt-1">
@@ -174,7 +174,6 @@
           </div>
         </div>
       </section>
-
       <!-- 5. How the Alarm Works -->
       <section class="flex flex-col items-center">
         <h2 class="text-[20px] font-extrabold text-[#0E0D24] tracking-tight mb-2">
@@ -194,7 +193,7 @@
           <div class="absolute top-0 left-0 right-0 p-2 bg-gradient-to-b from-black/70 to-transparent z-10 flex items-center justify-between pointer-events-none">
             <div class="flex items-center space-x-1.5">
               <div class="bg-white rounded-full px-1.5 py-0.5 border border-red-500 flex items-center">
-                <span class="text-[#E60000] text-[9px] font-black italic">Henkel</span>
+                <img src="./assets/henkel-logo.png" alt="Henkel" class="h-3 w-auto object-contain block" onerror="this.src='henkel-logo.png'; this.onerror=null;">
               </div>
               <span id="video-tag" class="text-white text-xs font-semibold drop-shadow">How the Alarm Works (iOS)</span>
             </div>
@@ -221,6 +220,7 @@
           </div>
         </div>
       </section>
+
 
       <!-- 6. Need Help? Contact Women Community -->
       <section class="mt-2 pt-6 border-t border-white/30 flex flex-col gap-4">
