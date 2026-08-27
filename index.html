@@ -88,12 +88,23 @@
 
     <div class="px-5 pt-5 pb-8 flex flex-col gap-4 z-10">
       
-      <!-- 1. Header: 替换为最新的结合版 Logo (henkel-empower-her-logo.PNG) -->
-      <header class="w-full flex items-center justify-center pt-1 pb-1">
+            <!-- 1. Header: 左上角靠左对齐 -->
+      <header class="w-full flex items-center justify-start pt-2 pb-1 px-1 min-h-[44px]">
         <img src="./assets/henkel-empower-her-logo.PNG" 
              alt="Henkel x Empower Her" 
-             class="h-8 max-w-[85%] object-contain block"
-             onerror="this.src='henkel-empower-her-logo.PNG'; this.onerror=function(){ this.src='./assets/henkel-empower-her-logo.png'; };">
+             class="w-auto h-7 sm:h-8 max-w-[85%] object-contain block"
+             onerror="
+               if (!this.dataset.tried1) {
+                 this.dataset.tried1 = true;
+                 this.src = './assets/henkel-empower-her-logo.png';
+               } else if (!this.dataset.tried2) {
+                 this.dataset.tried2 = true;
+                 this.src = 'henkel-empower-her-logo.PNG';
+               } else if (!this.dataset.tried3) {
+                 this.dataset.tried3 = true;
+                 this.src = 'henkel-empower-her-logo.png';
+               }
+             ">
       </header>
 
       <!-- 2. Hero Visual -->
