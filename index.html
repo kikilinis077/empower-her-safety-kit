@@ -1,276 +1,351 @@
- <!DOCTYPE html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Henkel China ERG 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Empower Her · Safety Kit</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
     
-    :root {
-      --dark-lilac: #69008C;
-      --bright-mint: #A2ECBA;
-      --henkel-red: #E1000F;
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background: linear-gradient(145deg, #8200ab 0%, #69008C 50%, #540070 100%);
-      color: #FFFFFF;
-      font-family: 'Outfit', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding-top: env(safe-area-inset-top);
-      padding-bottom: env(safe-area-inset-bottom);
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #FF4E00;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 120, 50, 0.4) 0%, transparent 50%),
+        linear-gradient(180deg, #FF5B14 0%, #FF4E00 60%, #E64600 100%);
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0;
+      padding: 0;
+      color: #0E0D24;
     }
 
-    .bright-purple-card {
-      background: rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.18);
+    .constellation-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 220px;
+      height: 220px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      opacity: 0.6;
     }
 
-    .mint-pill {
-      background-color: rgba(162, 236, 186, 0.22);
-      color: #A2ECBA;
-      border: 1px solid rgba(162, 236, 186, 0.45);
-      font-weight: 600;
+    .kit-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(14, 13, 36, 0.15);
+      transition: transform 0.2s ease;
+    }
+    .kit-card:active {
+      transform: scale(0.97);
+    }
+
+    .glass-audience-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 16px rgba(14, 13, 36, 0.1);
+    }
+
+    .video-card {
+      background: #1A1A1A;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .tab-btn {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tab-active {
+      background-color: #0E0D24;
+      color: #FFFFFF;
+      box-shadow: 0 3px 10px rgba(14, 13, 36, 0.35);
+    }
+    .tab-inactive {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #0E0D24;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col p-3.5 max-w-md mx-auto relative justify-between">
+<body class="p-0 sm:py-6">
 
-  <!-- 背景柔光装饰 -->
-  <div class="fixed top-[-10%] right-[-10%] w-[260px] h-[260px] rounded-full bg-[#A2ECBA]/25 blur-[90px] pointer-events-none"></div>
-  <div class="fixed bottom-[10%] left-[-10%] w-[240px] h-[240px] rounded-full bg-[#ff2e3f]/20 blur-[100px] pointer-events-none"></div>
+  <main class="w-full max-w-[420px] min-h-screen bg-[#FF4E00] relative flex flex-col justify-between overflow-hidden shadow-2xl sm:rounded-[32px]">
+    
+    <div class="constellation-bg"></div>
 
-  <!-- Header -->
-  <header class="w-full mb-2.5 relative z-10 pt-0.5">
-    <div class="flex items-center justify-between mb-1.5">
-      <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-wider bg-[#E1000F] text-white uppercase shadow">
-        Henkel China
-      </span>
-      <div class="bg-black/25 p-0.5 rounded-full border border-white/30 flex items-center shadow-sm">
-        <button type="button" onclick="window.setLang('zh')" id="btn-zh" class="px-3 py-0.5 rounded-full text-[11px] font-black transition-all bg-[#A2ECBA] text-[#540070] shadow">中</button>
-        <button type="button" onclick="window.setLang('en')" id="btn-en" class="px-3 py-0.5 rounded-full text-[11px] font-bold transition-all text-white/90 hover:text-white">EN</button>
-      </div>
+    <div class="px-5 pt-5 pb-8 flex flex-col gap-4 z-10">
+      
+      <!-- 1. Header: 左上角合并 Logo，放大字号显示 -->
+      <header class="w-full flex items-center justify-start pt-3 pb-2 px-1">
+        <img src="./assets/henkel-empower-her-logo.PNG" 
+             alt="Henkel x Empower Her" 
+             class="h-10 sm:h-12 w-auto max-w-[95%] object-contain block drop-shadow-sm"
+             onerror="
+               if (!this.dataset.tried1) {
+                 this.dataset.tried1 = true;
+                 this.src = './assets/henkel-empower-her-logo.png';
+               } else if (!this.dataset.tried2) {
+                 this.dataset.tried2 = true;
+                 this.src = 'henkel-empower-her-logo.PNG';
+               } else if (!this.dataset.tried3) {
+                 this.dataset.tried3 = true;
+                 this.src = 'henkel-empower-her-logo.png';
+               }
+             ">
+      </header>
+
+      <!-- 2. Hero Visual -->
+      <section class="w-full">
+        <div class="rounded-2xl overflow-hidden shadow-sm border border-white/40 bg-white/30">
+          <img src="./assets/empower-her-title.png" 
+               alt="Empower Her Safety Kit" 
+               class="w-full h-auto object-cover block"
+               onerror="this.src='empower-her-title.png'; this.onerror=null;">
+        </div>
+      </section>
+
+      <!-- 3. Target Audience Card -->
+      <section class="glass-audience-card rounded-xl p-3 flex items-center gap-3 border-l-[3.5px] border-[#0E0D24]">
+        <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-[#0E0D24]/20 bg-white flex items-center justify-center shadow-xs">
+          <img src="./assets/audience.png" 
+               alt="Audience" 
+               class="w-full h-full object-cover"
+               onerror="this.src='audience.png'; this.onerror=null;">
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-[13px] font-bold text-[#0E0D24] leading-snug">
+            For HAT Direct Customer Facing Colleagues <span class="text-[#FF4E00] font-black bg-white px-1.5 py-0.5 rounded text-xs inline-block mt-0.5">(female only)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Inside the Kit -->
+      <section class="flex flex-col items-center mt-1">
+        <h2 class="text-[20px] font-extrabold text-[#0E0D24] tracking-tight mb-2.5">
+          Inside the Kit
+        </h2>
+
+        <div class="grid grid-cols-3 gap-2.5 w-full">
+          <!-- Item 1: Safety Booklet -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
+              <img src="./assets/booklet.PNG" 
+                   alt="Safety Booklet" 
+                   class="w-full h-full object-contain"
+                   onerror="this.src='booklet.PNG'; this.onerror=function(){ this.src='./assets/booklet.png'; };">
+            </div>
+            <span class="text-[12px] font-bold text-[#0E0D24] leading-tight mt-1">Safety Booklet</span>
+          </div>
+
+          <!-- Item 2: Personal Safety Alarm -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden ring-2 ring-[#0E0D24]/20">
+              <img src="./assets/alarm.png" 
+                   alt="Personal Safety Alarm" 
+                   class="w-full h-full object-contain"
+                   onerror="this.src='alarm.png'; this.onerror=null;">
+            </div>
+            <span class="text-[12px] font-bold text-[#0E0D24] leading-tight mt-1">Personal<br>Safety Alarm</span>
+          </div>
+
+          <!-- Item 3: QR Quick Start Card -->
+          <div class="flex flex-col items-center text-center">
+            <div class="kit-card w-full aspect-square p-2 flex items-center justify-center mb-1 overflow-hidden">
+              <img src="./assets/qr-card.png" 
+                   alt="QR Quick Start Card" 
+                   class="w-full h-full object-contain"
+                   onerror="this.src='qr-card.png'; this.onerror=null;">
+            </div>
+            <span class="text-[12px] font-bold text-[#0E0D24] leading-tight mt-1">QR Quick<br>Start Card</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. How the Alarm Works (已清理浮层、提升安卓与微信兼容性) -->
+      <section class="flex flex-col items-center">
+        <h2 class="text-[20px] font-extrabold text-[#0E0D24] tracking-tight mb-2">
+          How the Alarm Works
+        </h2>
+
+        <!-- iOS / Android Switch -->
+        <div class="w-full max-w-[280px] p-1 bg-white/70 backdrop-blur-md rounded-full flex items-center justify-between mb-3 border border-white/80 shadow-xs">
+          <button id="tab-ios" onclick="switchVideo('ios')" class="tab-btn tab-active w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5">
+            <span>🍎</span> iOS Guide
+          </button>
+          <button id="tab-android" onclick="switchVideo('android')" class="tab-btn tab-inactive w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5">
+            <span>🤖</span> Android Guide
+          </button>
+        </div>
+
+        <div class="video-card w-full relative">
+          <!-- 视频播放器 -->
+          <div class="relative w-full aspect-[16/10] bg-zinc-900 flex items-center justify-center">
+            <video 
+              id="main-video"
+              src="./assets/how-it-works-ios.mp4" 
+              controls 
+              playsinline 
+              webkit-playsinline 
+              x5-video-player-type="h5-page"
+              preload="metadata"
+              poster="./assets/video-cover-ios.jpeg"
+              class="w-full h-full object-cover">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+
+          <div id="video-caption" class="p-2.5 bg-[#0E0D24]/95 text-[11px] text-white font-medium text-center border-t border-white/10">
+            Emergency SOS: Pull pin, or press side button 3x (iOS) / 5x (Android) to notify contacts.
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Need Help? Contact Women Community (无白色背景圈 + 完整邮箱) -->
+      <section class="mt-2 pt-6 border-t border-white/30 flex flex-col gap-4">
+        <div class="text-center">
+          <h2 class="text-xl font-extrabold text-[#0E0D24] tracking-tight leading-tight">
+            Need help? Contact<br>Women Community
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-3 gap-y-6 gap-x-1.5 px-0.5">
+          
+          <!-- 1. Monica Lim -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-monica.png" alt="Monica Lim" class="w-full h-full object-contain" onerror="this.src='avatar-monica.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Monica Lim</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">AMI</div>
+            <a href="mailto:monica.lim@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">monica.lim@henkel.com</a>
+          </div>
+
+          <!-- 2. Yueyanqiong Huang -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-yueyanqiong.png" alt="Yueyanqiong Huang" class="w-full h-full object-contain" onerror="this.src='avatar-yueyanqiong.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Yueyanqiong H.</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">AMC</div>
+            <a href="mailto:yueyanqiong.huang@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">yueyanqiong.huang@henkel.com</a>
+          </div>
+
+          <!-- 3. Carrie Chang -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-carrie.png" alt="Carrie Chang" class="w-full h-full object-contain" onerror="this.src='avatar-carrie.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Carrie Chang</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">ACM</div>
+            <a href="mailto:carrie.chang@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">carrie.chang@henkel.com</a>
+          </div>
+
+          <!-- 4. Wendy Wei -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-wendy-w.png" alt="Wendy Wei" class="w-full h-full object-contain" onerror="this.src='avatar-wendy-w.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Wendy Wei</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">AME</div>
+            <a href="mailto:wendy.wei@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">wendy.wei@henkel.com</a>
+          </div>
+
+          <!-- 5. Amanda Zhang -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-amanda.png" alt="Amanda Zhang" class="w-full h-full object-contain" onerror="this.src='avatar-amanda.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Amanda Zhang</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">AMC</div>
+            <a href="mailto:amanda.zhang@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">amanda.zhang@henkel.com</a>
+          </div>
+
+          <!-- 6. Rachel Chen -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-rachel.png" alt="Rachel Chen" class="w-full h-full object-contain" onerror="this.src='avatar-rachel.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Rachel Chen</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">ACM</div>
+            <a href="mailto:rachel.chen@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">rachel.chen@henkel.com</a>
+          </div>
+
+          <!-- 7. Wendy Song -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-wendy-s.png" alt="Wendy Song" class="w-full h-full object-contain" onerror="this.src='avatar-wendy-s.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Wendy Song</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">APP</div>
+            <a href="mailto:wendy.song@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">wendy.song@henkel.com</a>
+          </div>
+
+          <!-- 8. Kelly Zhang -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-kelly.png" alt="Kelly Zhang" class="w-full h-full object-contain" onerror="this.src='avatar-kelly.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Kelly Zhang</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">ACB</div>
+            <a href="mailto:kelly.zhang@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">kelly.zhang@henkel.com</a>
+          </div>
+
+          <!-- 9. Kiki Lin -->
+          <div class="flex flex-col items-center text-center">
+            <div class="w-16 h-16 overflow-hidden mb-1 shrink-0 flex items-center justify-center">
+              <img src="./assets/avatar-kiki.png" alt="Kiki Lin" class="w-full h-full object-contain" onerror="this.src='avatar-kiki.png'; this.onerror=null;">
+            </div>
+            <div class="text-xs font-bold text-[#0E0D24] leading-tight">Kiki Lin</div>
+            <div class="text-[10px] italic font-bold text-[#0E0D24]/75 mt-0.5">GBS<sup>+</sup> Shanghai</div>
+            <a href="mailto:kiki.lin@henkel.com" class="text-[8px] text-[#0E0D24] font-semibold underline mt-0.5 break-all leading-tight">kiki.lin@henkel.com</a>
+          </div>
+
+        </div>
+      </section>
+
     </div>
-    <h1 id="txt-title" class="text-xl font-black text-white tracking-tight leading-tight">员工资源小组</h1>
-    <p class="text-[10px] font-black text-[#A2ECBA] tracking-widest uppercase mt-0.5">Employee Resource Group</p>
-  </header>
 
-  <!-- 愿景概览卡片 -->
-  <section class="bright-purple-card w-full p-3 rounded-xl mb-2.5 relative z-10 border-l-4 border-l-[#E1000F]">
-    <div class="text-[10px] font-black text-[#A2ECBA] uppercase tracking-wider mb-1 flex items-center gap-1.5">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#A2ECBA]"></span>
-      <span id="txt-slogan">联结 • 共创 • 影响力</span>
-    </div>
-    <p id="txt-desc" class="text-[11px] leading-relaxed text-white font-medium">
-      Henkel China ERG（员工资源小组）是一个连接、共创与影响力的平台。在这里，不同的人被连接在一起，让想法不仅被表达，更被实现。通过一系列有温度的项目与活动，ERG 鼓励每一位员工超越“参与”，共同塑造文化、放大声音，并创造真实的影响。
-    </p>
-  </section>
+  </main>
 
-  <!-- 5 大支柱 Tab 栏（网格平铺，无需左右滑动） -->
-  <section class="w-full mb-2.5 relative z-10">
-    <div class="grid grid-cols-3 gap-1.5" id="tabs">
-      <button type="button" onclick="window.showPillar(0)" class="py-1.5 px-1 rounded-lg text-xs font-black text-center transition-all bg-[#A2ECBA] text-[#540070] shadow-md">性别平等</button>
-      <button type="button" onclick="window.showPillar(1)" class="py-1.5 px-1 rounded-lg text-xs font-black text-center transition-all bg-white/20 text-white hover:bg-white/30 border border-white/20">个性多元</button>
-      <button type="button" onclick="window.showPillar(2)" class="py-1.5 px-1 rounded-lg text-xs font-black text-center transition-all bg-white/20 text-white hover:bg-white/30 border border-white/20">跨界融合</button>
-      <button type="button" onclick="window.showPillar(3)" class="py-1.5 px-1 rounded-lg text-xs font-black text-center transition-all bg-white/20 text-white hover:bg-white/30 border border-white/20 col-span-1.5">世代共融</button>
-      <button type="button" onclick="window.showPillar(4)" class="py-1.5 px-1 rounded-lg text-xs font-black text-center transition-all bg-white/20 text-white hover:bg-white/30 border border-white/20 col-span-1.5">无障碍与包容</button>
-    </div>
-  </section>
-
-  <!-- 支柱详情展示卡片 -->
-  <section id="content" class="bright-purple-card p-4 rounded-xl flex-1 flex flex-col justify-between border-t-4 border-t-[#A2ECBA] relative z-10">
-    <div>
-      <div class="flex items-start justify-between gap-2 mb-1.5">
-        <h2 class="text-sm font-black text-white tracking-tight">GENDER 性别平等</h2>
-        <span class="px-2 py-0.5 rounded-md text-[9px] font-extrabold bg-[#A2ECBA]/25 text-[#A2ECBA] border border-[#A2ECBA]/40 whitespace-nowrap">平等发展 • 职场包容</span>
-      </div>
-      <p class="text-[11px] leading-relaxed text-white font-normal mb-3">
-        推动性别平等与包容性的职业发展。关注男性与女性的共同成长，打造更加包容的职场环境。通过午间TA力量、亲子活动，以及与 WLB Lab 平衡工作坊等项目，连接发展、生活与多元体验。
-      </p>
-    </div>
-    <div class="pt-2 border-t border-white/20">
-      <div class="text-[10px] font-black text-[#A2ECBA] mb-1.5 uppercase tracking-wider flex items-center gap-1.5">
-        <span class="w-1.5 h-3 bg-[#E1000F] rounded-full inline-block"></span>
-        <span>2026主要活动</span>
-      </div>
-      <!-- 双列网格排列 -->
-      <div class="grid grid-cols-2 gap-1.5">
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">IWD 2026 国际妇女节活动</span>
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">午间她力量 Lunchtime Shero</span>
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">平衡研究室 WLB Lab</span>
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">世代花园计划 Generations Garden</span>
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">为爱焕新颜 Father's Day</span>
-        <span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">创想工坊 Think Tank</span>
-      </div>
-    </div>
-  </section>
-
+  <!-- Dual Video Switch Script -->
   <script>
-    var i18n = {
-      zh: {
-        title: "员工资源小组",
-        slogan: "联结 • 共创 • 影响力",
-        desc: "Henkel China ERG（员工资源小组）是一个连接、共创与影响力的平台。在这里，不同的人被连接在一起，让想法不仅被表达，更被实现。通过一系列有温度的项目与活动，ERG 鼓励每一位员工超越“参与”，共同塑造文化、放大声音，并创造真实的影响。",
-        initiativesLabel: "2026主要活动",
-        items: [
-          { 
-            name: "性别平等", 
-            title: "GENDER 性别平等", 
-            subtitle: "平等发展 • 职场包容", 
-            desc: "推动性别平等与包容性的职业发展。关注男性与女性的共同成长，打造更加包容的职场环境。通过午间TA力量、亲子活动，以及与 WLB Lab 平衡工作坊等项目，连接发展、生活与多元体验。", 
-            tags: ["IWD 2026 国际妇女节", "午间她力量 Lunchtime Shero", "平衡研究室 WLB Lab", "世代花园计划", "为爱焕新颜 Father's Day", "创想工坊 Think Tank"] 
-          },
-          { 
-            name: "个性多元", 
-            title: "PERSONALITY 个性多元", 
-            subtitle: "认知探索 • 优势释放", 
-            desc: "探索自我认知，释放个体优势，扩大个人正向影响力。通过互动式工作坊与交流，帮助员工了解个性、优势与成长路径。代表性项目天赋魔镜结合 DiSC 与 MBTI 探索，广受欢迎，帮助大家更好地理解自己与他人。", 
-            tags: ["天赋魔镜 @Assessment", "斜杠工坊 The Slash Lab", "魔力导师课堂 Mentors Academy", "勇气回声剧场 Echoes"] 
-          },
-          { 
-            name: "跨界融合", 
-            title: "X-PILLAR 跨界融合", 
-            subtitle: "跨界连接 • 创新赋能", 
-            desc: "作为 2026 年全新设立的支柱，X-PILLAR 象征跨界融合与无限可能，X 代表尚未被定义、持续拓展的新维度。同时 X-PILLAR 致力于连接多元人才与资源，支持员工自发社群和创新平台的发展，统筹 ERG 年度活动，激发跨界协作，为个人成长和业务创新赋能。", 
-            tags: ["斜杠工坊 The Slash Hub", "Empower Her", "ERG 年度活动 Annual Event"] 
-          },
-          { 
-            name: "世代共融", 
-            title: "GENERATION 世代共融", 
-            subtitle: "代际对话 • 面向未来", 
-            desc: "连接不同世代，促进协作与未来探索。通过对话与交流，连接不同代际的视角与经验，促进理解与共创。代表性项目跨界拿捏计划（GenBridge）广受欢迎，推动不同世代之间的深度对话，并延伸至对未来议题（如 AI）的探索，2026 年也将持续推进。", 
-            tags: ["跨界拿捏计划 GenBridge", "世代新聚场 Nexus Fair", "GenInfinity+"] 
-          },
-          { 
-            name: "无障碍与包容", 
-            title: "DISABILITY 无障碍与包容", 
-            subtitle: "多元关怀 • 融入日常", 
-            desc: "打造更可及、更包容的环境。聚焦自闭症及残障群体的支持与关怀，提升对无障碍与多元能力的理解与认知。代表性项目如午间电影院（Midday Cinema）、与梦同行（Power to Ride）以及融合之路工作坊等，让包容与理解真正融入日常。", 
-            tags: ["视界之外 Beyond Sight", "同频时光 Together We Make", "黑暗中对话 Dialogue in Dark", "微光成炬 Sparks to Flame"] 
-          }
-        ]
-      },
-      en: {
-        title: "Employee Resource Group",
-        slogan: "Connection • Co-Creation • Impact",
-        desc: "Henkel China ERG (Employee Resource Group) is an employee-driven platform for connection, co-creation and impact. It connects people across teams and perspectives, creating a space where ideas are not only shared, but brought to life. Through meaningful initiatives, ERG empowers employees to go beyond participation — to shape culture, amplify voices, and create real impact within and beyond Henkel.",
-        initiativesLabel: "2026 Key Events",
-        items: [
-          { 
-            name: "Gender", 
-            title: "GENDER", 
-            subtitle: "Equality & Growth", 
-            desc: "Empowering gender equality and inclusive career development. Supporting both women and men in their career growth, while fostering an inclusive workplace culture. Through initiatives such as Lunchtime Shero, parenting activities and WLB Lab, ERG Gender brings development, balance and connection to life.", 
-            tags: ["IWD 2026", "Lunchtime Shero", "WLB Lab", "Generations Garden", "Father's Day", "Think Tank"] 
-          },
-          { 
-            name: "Personality", 
-            title: "PERSONALITY", 
-            subtitle: "Self-Awareness", 
-            desc: "Enhancing self-awareness to realize strengths and increase positive influence. Exploring personality, strengths and growth through interactive workshops and shared experiences. Signature programs like The Magic Mirror — featuring DiSC and MBTI explorations — have been highly engaging.", 
-            tags: ["The Magic Mirror", "The Slash Lab", "Mentors Academy", "Echoes of Your Voice"] 
-          },
-          { 
-            name: "X-Pillar", 
-            title: "X-PILLAR", 
-            subtitle: "Cross-Pillar & Impact", 
-            desc: "Introduced in 2026, X-PILLAR is a platform for cross-pillar collaboration and innovation. By connecting diverse talent and resources, supporting employee-led communities, and coordinating annual ERG initiatives, it enables personal growth and business impact.", 
-            tags: ["The Slash Hub", "Empower Her", "ERG Annual Event"] 
-          },
-          { 
-            name: "Generation", 
-            title: "GENERATION", 
-            subtitle: "Ages & Future", 
-            desc: "Connecting generations for collaboration and future exploration. Bridging perspectives across generations through open dialogue and shared experiences. Programs like GenBridge have been highly engaging, fostering meaningful conversations while exploring AI topics.", 
-            tags: ["GenBridge", "Nexus Fair", "GenInfinity+"] 
-          },
-          { 
-            name: "Disability", 
-            title: "DISABILITY", 
-            subtitle: "Accessibility", 
-            desc: "Building a more accessible and inclusive environment. Focusing on supporting individuals with autism and diverse abilities, while raising awareness of accessibility and inclusion through engaging signature initiatives.", 
-            tags: ["Beyond Sight", "Together We Make", "Dialogue in the Dark", "Sparks to Flame"] 
-          }
-        ]
+    function switchVideo(platform) {
+      const video = document.getElementById('main-video');
+      const tabIos = document.getElementById('tab-ios');
+      const tabAndroid = document.getElementById('tab-android');
+
+      // 暂停当前播放
+      video.pause();
+
+      if (platform === 'ios') {
+        tabIos.className = 'tab-btn tab-active w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5';
+        tabAndroid.className = 'tab-btn tab-inactive w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5';
+        video.poster = './assets/video-cover-ios.jpeg';
+        video.src = './assets/how-it-works-ios.mp4';
+      } else {
+        tabAndroid.className = 'tab-btn tab-active w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5';
+        tabIos.className = 'tab-btn tab-inactive w-1/2 py-1.5 rounded-full text-xs font-bold flex items-center justify-center gap-1.5';
+        video.poster = './assets/video-cover-android.jpeg';
+        video.src = './assets/how-it-works-android.mp4';
       }
-    };
-
-    var currentLang = 'zh';
-    var currentIndex = 0;
-
-    window.setLang = function(lang) {
-      currentLang = lang;
-      var d = i18n[lang];
-
-      var btnZh = document.getElementById('btn-zh');
-      var btnEn = document.getElementById('btn-en');
-      if (btnZh && btnEn) {
-        btnZh.className = "px-3 py-0.5 rounded-full text-[11px] font-black transition-all " + (lang === 'zh' ? 'bg-[#A2ECBA] text-[#540070] shadow' : 'text-white/90 hover:text-white');
-        btnEn.className = "px-3 py-0.5 rounded-full text-[11px] font-black transition-all " + (lang === 'en' ? 'bg-[#A2ECBA] text-[#540070] shadow' : 'text-white/90 hover:text-white');
-      }
-
-      var titleEl = document.getElementById('txt-title');
-      var sloganEl = document.getElementById('txt-slogan');
-      var descEl = document.getElementById('txt-desc');
-      if (titleEl) titleEl.innerText = d.title;
-      if (sloganEl) sloganEl.innerText = d.slogan;
-      if (descEl) descEl.innerText = d.desc;
-
-      window.renderTabs();
-      window.showPillar(currentIndex);
-    };
-
-    window.renderTabs = function() {
-      var tabs = document.getElementById('tabs');
-      if (!tabs) return;
-      var items = i18n[currentLang].items;
-      var html = '';
-      for (var i = 0; i < items.length; i++) {
-        var isAct = (i === currentIndex);
-        var cls = isAct ? 'bg-[#A2ECBA] text-[#540070] shadow-md' : 'bg-white/20 text-white hover:bg-white/30 border border-white/20';
-        // 后两项跨度排版
-        var spanClass = (i >= 3) ? 'col-span-1' : 'col-span-1';
-        html += '<button type="button" onclick="window.showPillar(' + i + ')" class="py-1.5 px-1 rounded-lg text-[11px] font-black text-center transition-all truncate ' + cls + ' ' + spanClass + '">' + items[i].name + '</button>';
-      }
-      tabs.innerHTML = html;
-    };
-
-    window.showPillar = function(idx) {
-      currentIndex = idx;
-      var p = i18n[currentLang].items[idx];
-      var content = document.getElementById('content');
-      if (!content) return;
-
-      var tagsHtml = '';
-      for (var j = 0; j < p.tags.length; j++) {
-        tagsHtml += '<span class="mint-pill px-2 py-1 rounded-lg text-[10px] leading-tight text-center flex items-center justify-center">' + p.tags[j] + '</span>';
-      }
-
-      content.innerHTML = 
-        '<div>' +
-          '<div class="flex items-start justify-between gap-2 mb-1.5">' +
-            '<h2 class="text-sm font-black text-white tracking-tight">' + p.title + '</h2>' +
-            '<span class="px-2 py-0.5 rounded-md text-[9px] font-extrabold bg-[#A2ECBA]/25 text-[#A2ECBA] border border-[#A2ECBA]/40 whitespace-nowrap">' + p.subtitle + '</span>' +
-          '</div>' +
-          '<p class="text-[11px] leading-relaxed text-white font-normal mb-3">' + p.desc + '</p>' +
-        '</div>' +
-        '<div class="pt-2 border-t border-white/20">' +
-          '<div class="text-[10px] font-black text-[#A2ECBA] mb-1.5 uppercase tracking-wider flex items-center gap-1.5">' +
-            '<span class="w-1.5 h-3 bg-[#E1000F] rounded-full inline-block"></span>' +
-            '<span>' + i18n[currentLang].initiativesLabel + '</span>' +
-          '</div>' +
-          '<div class="grid grid-cols-2 gap-1.5">' + tagsHtml + '</div>' +
-        '</div>';
-
-      window.renderTabs();
-    };
+      
+      // 强制重新加载视频流
+      video.load();
+    }
   </script>
+
 </body>
 </html>
-              
