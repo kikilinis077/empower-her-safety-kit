@@ -116,19 +116,27 @@
                onerror="this.src='empower-her-title.png'; this.onerror=null;">
         </div>
       </section>
-
-      <!-- 3. Target Audience Card -->
-      <section class="glass-audience-card rounded-xl p-3 flex items-center gap-3 border-l-[3.5px] border-[#0E0D24]">
-        <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-[#0E0D24]/20 bg-white flex items-center justify-center shadow-xs">
+      <!-- Target Audience / Pilot Notice Card -->
+      <section class="glass-audience-card rounded-2xl p-3.5 px-4 flex items-start gap-3.5 border-l-4 border-[#0E0D24] shadow-sm">
+        <!-- 左侧头像徽章 -->
+        <div class="w-11 h-11 rounded-full overflow-hidden shrink-0 border border-[#0E0D24]/15 bg-white flex items-center justify-center shadow-xs mt-0.5">
           <img src="./assets/audience.png" 
                alt="Audience" 
                class="w-full h-full object-cover"
                onerror="this.src='audience.png'; this.onerror=null;">
         </div>
-        <div class="flex-1 min-w-0">
-          <div class="text-[13px] font-bold text-[#0E0D24] leading-snug">
-            Pilot Participants: HAT direct customer-facing female colleagues
- Note: This is a limited pilot initiative. Feedback will be collected to assess the potential for a broader rollout in the future.
+
+        <!-- 右侧文字排版区域（文案一字未改） -->
+        <div class="flex-1 min-w-0 flex flex-col gap-1.5 text-left">
+          <!-- 1. 核心受众：加大字重，区分标签与主体 -->
+          <div class="text-[12px] leading-snug text-[#0E0D24]">
+            <span class="font-extrabold uppercase tracking-wide text-[10px] bg-[#0E0D24]/10 text-[#0E0D24] px-1.5 py-0.5 rounded mr-1">Pilot Participants</span>
+            <span class="font-bold">HAT direct customer-facing female colleagues</span>
+          </div>
+
+          <!-- 2. 说明信息：微小字号弱化，形成轻量次级层级 -->
+          <div class="text-[10px] text-[#0E0D24]/75 leading-tight pt-1 border-t border-[#0E0D24]/10">
+            <span class="font-bold text-[#0E0D24]">Note:</span> This is a limited pilot initiative. Feedback will be collected to assess the potential for a broader rollout in the future.
           </div>
         </div>
       </section>
